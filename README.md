@@ -1,6 +1,9 @@
-# probability-app
+# Chances
 
-> My supreme Nuxt.js project
+> A basic probability app to simplify your Maths!
+
+## Notes
+The original project was built in Vanilla JS, but I'm refactoring with Vue & Nuxt in an effort to learn Nuxt well enough to support an existing client project.
 
 ## Build Setup
 
