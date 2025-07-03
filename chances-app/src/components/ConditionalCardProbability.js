@@ -11,7 +11,7 @@ const ConditionalCardProbability = () => {
     const cardsPerRank = 4; // 4 suits
 
     // Validate input
-    if (!targetRank || !totalRanks.includes(targetRank.toUpperCase())) {
+    if (!targetRank || !ranks.includes(targetRank.toUpperCase())) {
       alert('Please enter a valid card rank (e.g., A, 2, 10, K).');
       setProbability(null);
       return;
