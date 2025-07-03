@@ -3,21 +3,29 @@ import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/dice">Dice Calculator</Link>
-        </li>
-        <li>
-          <Link to="/card">Card Calculator</Link>
-        </li>
-        <li>
-          <Link to="/birthday">Birthday Paradox</Link>
-        </li>
-      </ul>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">Chances App</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/dice">Dice Calculator</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/card">Card Calculator</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/birthday">Birthday Paradox</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };
