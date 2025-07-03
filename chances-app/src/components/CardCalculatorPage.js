@@ -22,11 +22,22 @@ const CardCalculatorPage = () => {
   return (
     <div>
       <h1>Card Probability Calculator</h1>
-      <div className="row">
-        <div className="col-md-6">
-          <div className="card mb-4">
+      <ul className="nav nav-tabs" id="cardTabs" role="tablist">
+        <li className="nav-item" role="presentation">
+          <button className="nav-link active" id="poker-tab" data-bs-toggle="tab" data-bs-target="#poker" type="button" role="tab" aria-controls="poker" aria-selected="true">Poker</button>
+        </li>
+        <li className="nav-item" role="presentation">
+          <button className="nav-link" id="blackjack-tab" data-bs-toggle="tab" data-bs-target="#blackjack" type="button" role="tab" aria-controls="blackjack" aria-selected="false">Blackjack Concepts</button>
+        </li>
+        <li className="nav-item" role="presentation">
+          <button className="nav-link" id="conditional-tab" data-bs-toggle="tab" data-bs-target="#conditional" type="button" role="tab" aria-controls="conditional" aria-selected="false">Conditional Probability</button>
+        </li>
+      </ul>
+      <div className="tab-content" id="cardTabsContent">
+        <div className="tab-pane fade show active" id="poker" role="tabpanel" aria-labelledby="poker-tab">
+          <div className="card mt-3">
             <div className="card-body">
-              <h2 className="card-title">Poker</h2>
+              <h2 className="card-title">Poker Hand Probability</h2>
               <CardForm onCalculate={handleCalculate} />
               {probabilityResults && (
                 <CardProbabilityDisplay
@@ -36,15 +47,22 @@ const CardCalculatorPage = () => {
                   probability={probabilityResults.probability}
                 />
               )}
-              <ConditionalCardProbability />
             </div>
           </div>
         </div>
-        <div className="col-md-6">
-          <div className="card mb-4">
+        <div className="tab-pane fade" id="blackjack" role="tabpanel" aria-labelledby="blackjack-tab">
+          <div className="card mt-3">
             <div className="card-body">
               <h2 className="card-title">Blackjack Concepts</h2>
               <BlackjackProbability />
+            </div>
+          </div>
+        </div>
+        <div className="tab-pane fade" id="conditional" role="tabpanel" aria-labelledby="conditional-tab">
+          <div className="card mt-3">
+            <div className="card-body">
+              <h2 className="card-title">Conditional Card Probability</h2>
+              <ConditionalCardProbability />
             </div>
           </div>
         </div>
