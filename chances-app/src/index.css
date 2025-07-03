@@ -205,11 +205,11 @@ code {
 }
 
 .dark-theme .table-striped tbody tr:nth-of-type(odd) {
-  background-color: var(--table-striped-bg);
+  background-color: var(--table-striped-bg) !important;
 }
 
 .dark-theme .table-striped tbody tr:nth-of-type(even) {
-  background-color: var(--table-striped-bg-even);
+  background-color: var(--table-striped-bg-even) !important;
 }
 
 .table tbody tr:hover {
