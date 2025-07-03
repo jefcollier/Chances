@@ -13,19 +13,21 @@ const DiceCalculatorPage = () => {
   };
 
   return (
-    <div>
-      <h1>Dice Probability Calculator</h1>
-      <DiceForm onCalculate={handleCalculate} />
-      {results && (
-        <div className="row mt-4">
-          <div className="col-md-6">
-            <ProbabilityTable results={results} />
+    <div className="card mt-4">
+      <div className="card-body">
+        <h1 className="card-title">Dice Probability Calculator</h1>
+        <DiceForm onCalculate={handleCalculate} />
+        {results && (
+          <div className="row mt-4">
+            <div className="col-md-6">
+              <ProbabilityTable results={results} />
+            </div>
+            <div className="col-md-6">
+              <ProbabilityChart results={results} />
+            </div>
           </div>
-          <div className="col-md-6">
-            <ProbabilityChart results={results} />
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
