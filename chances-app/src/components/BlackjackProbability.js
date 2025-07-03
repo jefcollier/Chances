@@ -39,6 +39,7 @@ const BlackjackProbability = () => {
   const [twentyOneProbability, setTwentyOneProbability] = useState(null);
   const [safeTotalProbability, setSafeTotalProbability] = useState(null);
   const [recommendation, setRecommendation] = useState(null);
+  const [numOtherPlayers, setNumOtherPlayers] = useState(0);
 
   const calculateProbability = () => {
     const deck = [];
@@ -84,6 +85,17 @@ const BlackjackProbability = () => {
       if (dealerCardIndex > -1) {
         remainingDeck.splice(dealerCardIndex, 1);
       }
+    }
+
+    // Remove cards for other players (assuming 2 cards per player)
+    const cardsToRemoveForOtherPlayers = numOtherPlayers * 2;
+    if (remainingDeck.length >= cardsToRemoveForOtherPlayers) {
+      remainingDeck.splice(0, cardsToRemoveForOtherPlayers);
+    } else {
+      // Handle case where not enough cards are left for other players
+      // This might indicate an invalid scenario or a very small deck
+      console.warn("Not enough cards in the deck for other players.");
+      // Optionally, you could alert the user or set probabilities to 0
     }
 
     let bustCount = 0;
@@ -159,6 +171,17 @@ const BlackjackProbability = () => {
           value={dealerUpCard}
           onChange={(e) => setDealerUpCard(e.target.value)}
           placeholder="e.g., 7 or Q"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="numOtherPlayers" className="form-label">Number of Other Players:</label>
+        <input
+          type="number"
+          className="form-control"
+          id="numOtherPlayers"
+          value={numOtherPlayers}
+          onChange={(e) => setNumOtherPlayers(parseInt(e.target.value, 10) || 0)}
+          min="0"
         />
       </div>
       <button className="btn btn-primary" onClick={calculateProbability}>Calculate Hit Probability</button>
