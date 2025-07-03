@@ -59,12 +59,8 @@ const CardCalculatorPage = () => {
           </div>
         </div>
         <div className="tab-pane fade" id="conditional" role="tabpanel" aria-labelledby="conditional-tab">
-          <div className="card mt-3">
-            <div className="card-body">
-              <h2 className="card-title">Conditional Card Probability</h2>
-              <ConditionalCardProbability />
-            </div>
-          </div>
+          <h2>Conditional Card Probability</h2>
+          <ConditionalCardProbability />
         </div>
       </div>
     </div>
