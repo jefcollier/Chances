@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 code {
@@ -12,13 +14,42 @@ code {
     monospace;
 }
 
-/* Theme styles */
+/* Theme variables */
 .light-theme {
-  background-color: #f8f9fa; /* Bootstrap's light background */
-  color: #212529; /* Bootstrap's dark text */
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --card-background-color: #ffffff;
+  --card-text-color: #212529;
+  --navbar-background-color: #f8f9fa;
+  --navbar-text-color: rgba(0, 0, 0, 0.55);
+  --navbar-toggler-icon-filter: none;
 }
 
 .dark-theme {
-  background-color: #343a40; /* Bootstrap's dark background */
-  color: #f8f9fa; /* Bootstrap's light text */
+  --background-color: #343a40;
+  --text-color: #f8f9fa;
+  --card-background-color: #495057;
+  --card-text-color: #f8f9fa;
+  --navbar-background-color: #343a40;
+  --navbar-text-color: rgba(255, 255, 255, 0.75);
+  --navbar-toggler-icon-filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Apply theme variables to elements */
+.card {
+  background-color: var(--card-background-color);
+  color: var(--card-text-color);
+  border-color: var(--card-text-color);
+}
+
+.navbar {
+  background-color: var(--navbar-background-color) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--navbar-text-color);
+}
+
+.navbar-light .navbar-toggler-icon {
+  filter: var(--navbar-toggler-icon-filter);
 }
