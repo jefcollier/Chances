@@ -35,6 +35,8 @@ const BlackjackProbability = () => {
   const [playerHand, setPlayerHand] = useState('');
   const [dealerUpCard, setDealerUpCard] = useState('');
   const [bustProbability, setBustProbability] = useState(null);
+  const [twentyOneProbability, setTwentyOneProbability] = useState(null);
+  const [safeTotalProbability, setSafeTotalProbability] = useState(null);
 
   const calculateProbability = () => {
     const deck = [];
@@ -51,6 +53,8 @@ const BlackjackProbability = () => {
     if (playerHandArray.some(card => !ranks.includes(card))) {
       alert('Invalid card in player hand. Please use 2-10, J, Q, K, A.');
       setBustProbability(null);
+      setTwentyOneProbability(null);
+      setSafeTotalProbability(null);
       return;
     }
 
@@ -60,6 +64,8 @@ const BlackjackProbability = () => {
     if (dealerCard && !ranks.includes(dealerCard)) {
       alert('Invalid dealer up card. Please use 2-10, J, Q, K, A.');
       setBustProbability(null);
+      setTwentyOneProbability(null);
+      setSafeTotalProbability(null);
       return;
     }
 
@@ -79,6 +85,8 @@ const BlackjackProbability = () => {
     }
 
     let bustCount = 0;
+    let twentyOneCount = 0;
+    let safeTotalCount = 0;
     let totalPossibleDraws = 0;
 
     // Simulate drawing one more card
@@ -86,15 +94,25 @@ const BlackjackProbability = () => {
       totalPossibleDraws++;
       const newHand = [...playerHandArray, card];
       const newHandValue = calculateHandValue(newHand);
+
       if (newHandValue > 21) {
         bustCount++;
+      } else if (newHandValue === 21) {
+        twentyOneCount++;
+        safeTotalCount++; // 21 is also a safe total
+      } else if (newHandValue >= 17 && newHandValue < 21) {
+        safeTotalCount++;
       }
     }
 
     if (totalPossibleDraws === 0) {
-      setBustProbability(0); // No cards left to draw, or initial hand already > 21
+      setBustProbability(0);
+      setTwentyOneProbability(0);
+      setSafeTotalProbability(0);
     } else {
       setBustProbability((bustCount / totalPossibleDraws).toFixed(2));
+      setTwentyOneProbability((twentyOneCount / totalPossibleDraws).toFixed(2));
+      setSafeTotalProbability((safeTotalCount / totalPossibleDraws).toFixed(2));
     }
   };
 
@@ -129,6 +147,8 @@ const BlackjackProbability = () => {
         <div className="mt-3">
           <h4>Results:</h4>
           <p>Probability of busting if you hit: {bustProbability * 100}%</p>
+          {twentyOneProbability !== null && <p>Probability of reaching 21 if you hit: {twentyOneProbability * 100}%</p>}
+          {safeTotalProbability !== null && <p>Probability of reaching a safe total (17-21) if you hit: {safeTotalProbability * 100}%</p>}
         </div>
       )}
     </div>
