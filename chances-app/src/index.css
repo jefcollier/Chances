@@ -36,6 +36,13 @@ code {
   --btn-secondary-bg: #6c757d;
   --btn-secondary-border: #6c757d;
   --btn-secondary-color: #fff;
+
+  /* Light mode switch colors (default Bootstrap) */
+  --form-switch-bg: #e9ecef;
+  --form-switch-border: rgba(0, 0, 0, 0.25);
+  --form-switch-checked-bg: #0d6efd;
+  --form-switch-checked-border: #0d6efd;
+  --form-switch-thumb-filter: none;
 }
 
 .dark-theme {
@@ -59,6 +66,13 @@ code {
   --btn-secondary-bg: #fd7e14; /* Bootstrap orange */
   --btn-secondary-border: #fd7e14;
   --btn-secondary-color: #fff;
+
+  /* Dark mode switch colors */
+  --form-switch-bg: #6c757d; /* Grey for unchecked */
+  --form-switch-border: #6c757d;
+  --form-switch-checked-bg: #ffc107; /* Gold for checked */
+  --form-switch-checked-border: #ffc107;
+  --form-switch-thumb-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(280deg) brightness(100%) contrast(100%); /* White thumb */
 }
 
 /* Apply theme variables to elements */
@@ -140,4 +154,25 @@ code {
   border-color: var(--btn-secondary-border);
   color: var(--btn-secondary-color);
   filter: brightness(90%); /* Slightly darken on hover/focus/active */
+}
+
+/* Form switch styles */
+.form-check-input:checked {
+  background-color: var(--form-switch-checked-bg);
+  border-color: var(--form-switch-checked-border);
+}
+
+.form-check-input {
+  background-color: var(--form-switch-bg);
+  border-color: var(--form-switch-border);
+}
+
+.form-check-input:focus {
+  border-color: var(--form-switch-checked-border);
+  box-shadow: 0 0 0 0.25rem rgba(var(--form-switch-checked-bg-rgb, 255, 193, 7), 0.25);
+}
+
+.form-check-input:checked[type="checkbox"] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  filter: var(--form-switch-thumb-filter);
 }
