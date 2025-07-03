@@ -76,6 +76,5 @@ const ConditionalCardProbability = () => {
     </div>
   );
 };
-};
 
 export default ConditionalCardProbability;
