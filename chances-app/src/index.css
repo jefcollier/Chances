@@ -214,6 +214,7 @@ code {
 
 .dark-theme .table th {
   background-color: rgb(108, 117, 125);
+  color: white;
 }
 
 .dark-theme .table-striped tbody tr:nth-of-type(odd) td {
