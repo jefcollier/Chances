@@ -74,55 +74,41 @@ const DiceForm = ({ onCalculate }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mb-4">
-      <div className="row justify-content-center">
-        {dice.map((d, index) => (
-          <div className="col-sm-4 col-md-3 col-lg-2 mb-2" key={d.sides}>
-            <div className="input-group">
-              <input
-                type="number"
-                className="form-control"
-                id={`d${d.sides}`}
-                value={d.count}
-                onChange={(e) => handleCountChange(index, parseInt(e.target.value, 10) || 0)}
-                min="0"
-              />
-              <span className="input-group-text">d{d.sides}</span>
-            </div>
-          </div>
-        ))}
-        <div className="col-sm-4 col-md-3 col-lg-2 mb-2">
-          <div className="input-group">
-            <input
-              type="number"
-              className="form-control"
-              id="modifier"
-              value={modifier}
-              onChange={(e) => setModifier(parseInt(e.target.value, 10) || 0)}
-            />
-            <span className="input-group-text">Modifier</span>
-          </div>
-        </div>
+      <div className="mb-3">
+        <label htmlFor="shortHandInput" className="form-label">Short-hand Input (e.g., 2d4+3+4d6+11)</label>
+        <input
+          type="text"
+          className="form-control"
+          id="shortHandInput"
+          value={shortHandInput}
+          onChange={(e) => setShortHandInput(e.target.value)}
+          placeholder="e.g., 2d4+3+4d6+11"
+        />
       </div>
-      <div className="row justify-content-center">
-        <div className="col-sm-6 col-md-5 col-lg-4 mb-2">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              id="shortHandInput"
-              value={shortHandInput}
-              onChange={(e) => setShortHandInput(e.target.value)}
-              placeholder="e.g., 2d4+3+4d6+11"
-            />
-            <span className="input-group-text">Short-hand</span>
-          </div>
-        </div>
+      <div className="mb-3">
+        <label htmlFor="modifier" className="form-label">Modifier</label>
+        <input
+          type="number"
+          className="form-control"
+          id="modifier"
+          value={modifier}
+          onChange={(e) => setModifier(parseInt(e.target.value, 10) || 0)}
+        />
       </div>
-      <div className="row justify-content-center">
-        <div className="col-sm-6 col-md-5 col-lg-4 mt-3">
-          <button type="submit" className="btn btn-primary w-100">Calculate</button>
+      {dice.map((d, index) => (
+        <div className="mb-3" key={d.sides}>
+          <label htmlFor={`d${d.sides}`} className="form-label">d{d.sides} Count</label>
+          <input
+            type="number"
+            className="form-control"
+            id={`d${d.sides}`}
+            value={d.count}
+            onChange={(e) => handleCountChange(index, parseInt(e.target.value, 10) || 0)}
+            min="0"
+          />
         </div>
-      </div>
+      ))}
+      <button type="submit" className="btn btn-primary w-100">Calculate</button>
     </form>
   );
 };
