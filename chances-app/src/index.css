@@ -49,6 +49,7 @@ code {
   --table-bg: #fff;
   --table-border-color: #dee2e6;
   --table-striped-bg: rgba(0, 0, 0, 0.05);
+  --table-hover-bg: rgba(0, 0, 0, 0.075);
 }
 
 .dark-theme {
@@ -84,7 +85,8 @@ code {
   --table-color: #f8f9fa;
   --table-bg: #495057;
   --table-border-color: #6c757d;
-  --table-striped-bg: rgba(255, 255, 255, 0.05);
+  --table-striped-bg: rgba(255, 255, 255, 0.1);
+  --table-hover-bg: rgba(255, 255, 255, 0.15);
 }
 
 /* Apply theme variables to elements */
@@ -203,4 +205,8 @@ code {
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: var(--table-striped-bg);
+}
+
+.table tbody tr:hover {
+  background-color: var(--table-hover-bg);
 }
