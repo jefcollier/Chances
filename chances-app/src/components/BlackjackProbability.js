@@ -131,7 +131,7 @@ const BlackjackProbability = () => {
     <div className="blackjack-probability">
       <h3>Hit or Stand Probability</h3>
       <div className="mb-3">
-        <label htmlFor="playerHand" className="form-label">Your Hand (e.g., A,5 or 10,K): {playerHandTotal !== null && `(${playerHandTotal})`}</label>
+        <label htmlFor="playerHand" className="form-label">Your Hand (e.g., A,5 or 10,K): {playerHandTotal !== null && `(<strong>${playerHandTotal}</strong>)`}</label>
         <input
           type="text"
           className="form-control"
