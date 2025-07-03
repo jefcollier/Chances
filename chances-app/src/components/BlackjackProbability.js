@@ -33,6 +33,7 @@ const calculateHandValue = (hand) => {
 
 const BlackjackProbability = () => {
   const [playerHand, setPlayerHand] = useState('');
+  const [playerHandTotal, setPlayerHandTotal] = useState(null);
   const [dealerUpCard, setDealerUpCard] = useState('');
   const [bustProbability, setBustProbability] = useState(null);
   const [twentyOneProbability, setTwentyOneProbability] = useState(null);
@@ -130,13 +131,22 @@ const BlackjackProbability = () => {
     <div className="blackjack-probability">
       <h3>Hit or Stand Probability</h3>
       <div className="mb-3">
-        <label htmlFor="playerHand" className="form-label">Your Hand (e.g., A,5 or 10,K):</label>
+        <label htmlFor="playerHand" className="form-label">Your Hand (e.g., A,5 or 10,K): {playerHandTotal !== null && `(${playerHandTotal})`}</label>
         <input
           type="text"
           className="form-control"
           id="playerHand"
           value={playerHand}
-          onChange={(e) => setPlayerHand(e.target.value)}
+          onChange={(e) => {
+            setPlayerHand(e.target.value);
+            const handArray = e.target.value.split(',').map(card => card.trim().toUpperCase());
+            // Only calculate total if handArray is not empty and contains valid cards
+            if (handArray.length > 0 && handArray[0] !== '') {
+              setPlayerHandTotal(calculateHandValue(handArray));
+            } else {
+              setPlayerHandTotal(null);
+            }
+          }}
           placeholder="e.g., A,5 or 10,K"
         />
       </div>
