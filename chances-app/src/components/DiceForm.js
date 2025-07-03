@@ -113,16 +113,6 @@ const DiceForm = ({ onCalculate }) => {
         </div>
       ) : (
         <>
-          <div className="input-group mb-3">
-            <input
-              type="number"
-              className="form-control"
-              id="modifier"
-              value={modifier}
-              onChange={(e) => setModifier(parseInt(e.target.value, 10) || 0)}
-            />
-            <span className="input-group-text text-end">Modifier</span>
-          </div>
           {dice.map((d, index) => (
             <div className="input-group mb-3" key={d.sides}>
               <input
@@ -136,6 +126,16 @@ const DiceForm = ({ onCalculate }) => {
               <span className="input-group-text text-end">d{d.sides}</span>
             </div>
           ))}
+          <div className="input-group mb-3">
+            <input
+              type="number"
+              className="form-control"
+              id="modifier"
+              value={modifier}
+              onChange={(e) => setModifier(parseInt(e.target.value, 10) || 0)}
+            />
+            <span className="input-group-text text-end">+Modifier</span>
+          </div>
         </>
       )}
       <button type="submit" className="btn btn-primary w-100">Calculate</button>
