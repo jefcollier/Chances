@@ -83,10 +83,10 @@ code {
 
   /* Table colors */
   --table-color: #f8f9fa;
-  --table-bg: #3a3f44;
+  --table-bg: #2c3034; /* Darker base for table */
   --table-border-color: #6c757d;
-  --table-striped-bg: #42474d; /* Darker grey for odd rows */
-  --table-striped-bg-even: #3a3f44; /* Even darker grey for even rows */
+  --table-striped-bg: #495057; /* Medium grey for odd rows */
+  --table-striped-bg-even: #3a3f44; /* Dark grey for even rows */
   --table-hover-bg: #5a6268;
 }
 
@@ -210,6 +210,18 @@ code {
 
 .dark-theme .table-striped tbody tr:nth-of-type(even) {
   background-color: var(--table-striped-bg-even) !important;
+}
+
+.dark-theme .table th {
+  background-color: grey;
+}
+
+.dark-theme .table-striped tbody tr:nth-of-type(odd) td {
+  background-color: rgb(108, 117, 125) !important;
+}
+
+.dark-theme .table-striped tbody tr:nth-of-type(even) td {
+  background-color: lightgrey !important;
 }
 
 .table tbody tr:hover {
