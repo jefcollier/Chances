@@ -86,10 +86,17 @@ const DiceForm = ({ onCalculate }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mb-4">
-      <div className="d-grid gap-2 mb-3">
-        <button className="btn btn-outline-primary" type="button" onClick={handleToggleInput}>
-          {useShortHand ? 'Use Detailed Input' : 'Use Shorthand Input'}
-        </button>
+      <div className="form-check form-switch mb-3">
+        <input
+          className="form-check-input"
+          type="checkbox"
+          id="flexSwitchCheckDefault"
+          checked={useShortHand}
+          onChange={handleToggleInput}
+        />
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          {useShortHand ? 'Use Shorthand Input' : 'Use Detailed Input'}
+        </label>
       </div>
 
       {useShortHand ? (

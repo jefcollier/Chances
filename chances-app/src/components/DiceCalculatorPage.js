@@ -21,18 +21,19 @@ const DiceCalculatorPage = () => {
             <DiceForm onCalculate={handleCalculate} />
           </div>
           <div className="col-md-6">
-            {results && (
-              <div className="row mt-4">
-                <div className="col-md-12">
-                  <ProbabilityTable results={results} />
-                </div>
-                <div className="col-md-12">
-                  <ProbabilityChart results={results} />
-                </div>
-              </div>
-            )}
+            {/* This column can be used for other elements if needed, or left empty */}
           </div>
         </div>
+        {results && (
+          <div className="row mt-4">
+            <div className="col-md-6">
+              <ProbabilityTable results={results} />
+            </div>
+            <div className="col-md-6">
+              <ProbabilityChart results={results} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
