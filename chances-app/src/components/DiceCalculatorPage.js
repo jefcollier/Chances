@@ -4,7 +4,7 @@ import ProbabilityChart from './ProbabilityChart';
 import ProbabilityTable from './ProbabilityTable';
 import { calculateProbabilities } from './diceCalculator';
 
-const DiceCalculatorPage = () => {
+const DiceCalculatorPage = ({ theme }) => {
   const [results, setResults] = useState(null);
 
   const handleCalculate = ({ dice, modifier }) => {
@@ -30,7 +30,7 @@ const DiceCalculatorPage = () => {
               <ProbabilityTable results={results} />
             </div>
             <div className="col-md-6">
-              <ProbabilityChart results={results} />
+              <ProbabilityChart results={results} theme={theme} />
             </div>
           </div>
         )}

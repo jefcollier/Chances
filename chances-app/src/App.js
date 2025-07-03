@@ -42,7 +42,7 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/dice" element={<DiceCalculatorPage />} />
+          <Route path="/dice" element={<DiceCalculatorPage theme={theme} />} />
           <Route path="/card" element={<CardCalculatorPage />} />
           <Route path="/birthday" element={<BirthdayParadoxPage />} />
         </Routes>

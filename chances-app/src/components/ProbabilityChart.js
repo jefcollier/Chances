@@ -19,8 +19,12 @@ ChartJS.register(
   Legend
 );
 
-const ProbabilityChart = ({ results }) => {
+const ProbabilityChart = ({ results, theme }) => {
   if (!results) return null;
+
+  const textColor = theme === 'dark' ? '#f8f9fa' : '#212529';
+  const gridColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)';
+  const barColor = theme === 'dark' ? '#ffc107' : 'rgba(75, 192, 192, 0.6)';
 
   const chartData = {
     labels: Object.keys(results),
@@ -28,7 +32,7 @@ const ProbabilityChart = ({ results }) => {
       {
         label: 'Probability',
         data: Object.values(results),
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        backgroundColor: barColor,
       },
     ],
   };
@@ -40,16 +44,34 @@ const ProbabilityChart = ({ results }) => {
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          color: textColor,
+        },
       },
       title: {
         display: true,
         text: 'Probability Distribution',
+        color: textColor,
       },
     },
     scales: {
       x: {
         barPercentage: 0.9, // Adjusts the thickness of the bars
         categoryPercentage: 0.9, // Adjusts the spacing between categories
+        ticks: {
+          color: textColor,
+        },
+        grid: {
+          color: gridColor,
+        },
+      },
+      y: {
+        ticks: {
+          color: textColor,
+        },
+        grid: {
+          color: gridColor,
+        },
       },
     },
   };
