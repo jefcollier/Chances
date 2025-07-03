@@ -83,11 +83,11 @@ code {
 
   /* Table colors */
   --table-color: #f8f9fa;
-  --table-bg: #495057;
+  --table-bg: #3a3f44;
   --table-border-color: #6c757d;
-  --table-striped-bg: rgba(255, 255, 255, 0.1);
-  --table-striped-bg-even: rgba(255, 255, 255, 0.05);
-  --table-hover-bg: rgba(255, 255, 255, 0.15);
+  --table-striped-bg: #495057;
+  --table-striped-bg-even: #5a6268;
+  --table-hover-bg: #5a6268;
 }
 
 /* Apply theme variables to elements */
