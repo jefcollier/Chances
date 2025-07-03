@@ -11,6 +11,7 @@ const DiceForm = ({ onCalculate }) => {
   ]);
   const [modifier, setModifier] = useState(0);
   const [shortHandInput, setShortHandInput] = useState('');
+  const [useShortHand, setUseShortHand] = useState(true);
 
   const handleCountChange = (index, newCount) => {
     const updatedDice = [...dice];
@@ -18,12 +19,23 @@ const DiceForm = ({ onCalculate }) => {
     setDice(updatedDice);
   };
 
+  const handleToggleInput = () => {
+    setUseShortHand(!useShortHand);
+    // Clear values when toggling input method
+    if (useShortHand) { // Was using shorthand, switching to detailed
+      setShortHandInput('');
+    } else { // Was using detailed, switching to shorthand
+      setDice(dice.map(d => ({ ...d, count: 0 })));
+      setModifier(0);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let calculatedDice = [...dice];
     let calculatedModifier = modifier;
 
-    if (shortHandInput) {
+    if (useShortHand) {
       const parsed = parseShortHand(shortHandInput);
       calculatedDice = parsed.dice;
       calculatedModifier = parsed.modifier;
@@ -74,40 +86,51 @@ const DiceForm = ({ onCalculate }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mb-4">
-      <div className="mb-3">
-        <label htmlFor="shortHandInput" className="form-label">Short-hand Input (e.g., 2d4+3+4d6+11)</label>
-        <input
-          type="text"
-          className="form-control"
-          id="shortHandInput"
-          value={shortHandInput}
-          onChange={(e) => setShortHandInput(e.target.value)}
-          placeholder="e.g., 2d4+3+4d6+11"
-        />
+      <div className="d-grid gap-2 mb-3">
+        <button className="btn btn-outline-primary" type="button" onClick={handleToggleInput}>
+          {useShortHand ? 'Use Detailed Input' : 'Use Shorthand Input'}
+        </button>
       </div>
-      <div className="mb-3">
-        <label htmlFor="modifier" className="form-label">Modifier</label>
-        <input
-          type="number"
-          className="form-control"
-          id="modifier"
-          value={modifier}
-          onChange={(e) => setModifier(parseInt(e.target.value, 10) || 0)}
-        />
-      </div>
-      {dice.map((d, index) => (
-        <div className="mb-3" key={d.sides}>
-          <label htmlFor={`d${d.sides}`} className="form-label">d{d.sides} Count</label>
+
+      {useShortHand ? (
+        <div className="mb-3">
+          <label htmlFor="shortHandInput" className="form-label">Short-hand Input (e.g., 2d4+3+4d6+11)</label>
           <input
-            type="number"
+            type="text"
             className="form-control"
-            id={`d${d.sides}`}
-            value={d.count}
-            onChange={(e) => handleCountChange(index, parseInt(e.target.value, 10) || 0)}
-            min="0"
+            id="shortHandInput"
+            value={shortHandInput}
+            onChange={(e) => setShortHandInput(e.target.value)}
+            placeholder="e.g., 2d4+3+4d6+11"
           />
         </div>
-      ))}
+      ) : (
+        <>
+          <div className="mb-3">
+            <label htmlFor="modifier" className="form-label">Modifier</label>
+            <input
+              type="number"
+              className="form-control"
+              id="modifier"
+              value={modifier}
+              onChange={(e) => setModifier(parseInt(e.target.value, 10) || 0)}
+            />
+          </div>
+          {dice.map((d, index) => (
+            <div className="mb-3" key={d.sides}>
+              <label htmlFor={`d${d.sides}`} className="form-label">d{d.sides} Count</label>
+              <input
+                type="number"
+                className="form-control"
+                id={`d${d.sides}`}
+                value={d.count}
+                onChange={(e) => handleCountChange(index, parseInt(e.target.value, 10) || 0)}
+                min="0"
+              />
+            </div>
+          ))}
+        </>
+      )}
       <button type="submit" className="btn btn-primary w-100">Calculate</button>
     </form>
   );
