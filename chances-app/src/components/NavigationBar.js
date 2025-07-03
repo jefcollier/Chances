@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavigationBar = ({ theme, toggleTheme }) => {
+const NavigationBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -19,20 +19,6 @@ const NavigationBar = ({ theme, toggleTheme }) => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/birthday">Birthday Paradox</Link>
-            </li>
-            <li className="nav-item d-flex align-items-center">
-              <div className="form-check form-switch">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="themeSwitch"
-                  checked={theme === 'dark'}
-                  onChange={toggleTheme}
-                />
-                <label className="form-check-label" htmlFor="themeSwitch">
-                  {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
-                </label>
-              </div>
             </li>
           </ul>
         </div>

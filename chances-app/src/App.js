@@ -24,8 +24,22 @@ function App() {
 
   return (
     <Router>
-      <div className="container mt-5">
-        <NavigationBar theme={theme} toggleTheme={toggleTheme} />
+      <div className="container mt-3">
+        <div className="d-flex justify-content-end mb-3">
+          <div className="form-check form-switch">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="themeSwitch"
+              checked={theme === 'dark'}
+              onChange={toggleTheme}
+            />
+            <label className="form-check-label" htmlFor="themeSwitch">
+              {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
+            </label>
+          </div>
+        </div>
+        <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dice" element={<DiceCalculatorPage />} />

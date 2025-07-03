@@ -23,9 +23,10 @@ code {
   --navbar-background-color: #f8f9fa;
   --navbar-text-color: rgba(0, 0, 0, 0.55);
   --navbar-toggler-icon-filter: none;
-  --tab-link-color: #0d6efd;
-  --tab-link-active-color: #0d6efd;
-  --tab-link-hover-color: #0a58ca;
+  --navbar-brand-color: #212529;
+  --tab-link-color: #212529;
+  --tab-link-active-color: #212529;
+  --tab-link-hover-color: #6c757d;
 }
 
 .dark-theme {
@@ -36,9 +37,10 @@ code {
   --navbar-background-color: #343a40;
   --navbar-text-color: rgba(255, 255, 255, 0.75);
   --navbar-toggler-icon-filter: invert(1) grayscale(100%) brightness(200%);
-  --tab-link-color: #6daffc;
-  --tab-link-active-color: #6daffc;
-  --tab-link-hover-color: #9ecbff;
+  --navbar-brand-color: #ffffff;
+  --tab-link-color: #ffffff;
+  --tab-link-active-color: #ffffff;
+  --tab-link-hover-color: #e9ecef;
 }
 
 /* Apply theme variables to elements */
@@ -50,6 +52,10 @@ code {
 
 .navbar {
   background-color: var(--navbar-background-color) !important;
+}
+
+.navbar-brand {
+  color: var(--navbar-brand-color) !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
