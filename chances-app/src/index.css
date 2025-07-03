@@ -23,6 +23,9 @@ code {
   --navbar-background-color: #f8f9fa;
   --navbar-text-color: rgba(0, 0, 0, 0.55);
   --navbar-toggler-icon-filter: none;
+  --tab-link-color: #0d6efd;
+  --tab-link-active-color: #0d6efd;
+  --tab-link-hover-color: #0a58ca;
 }
 
 .dark-theme {
@@ -33,6 +36,9 @@ code {
   --navbar-background-color: #343a40;
   --navbar-text-color: rgba(255, 255, 255, 0.75);
   --navbar-toggler-icon-filter: invert(1) grayscale(100%) brightness(200%);
+  --tab-link-color: #6daffc;
+  --tab-link-active-color: #6daffc;
+  --tab-link-hover-color: #9ecbff;
 }
 
 /* Apply theme variables to elements */
@@ -50,6 +56,33 @@ code {
   color: var(--navbar-text-color);
 }
 
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: var(--navbar-text-color);
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--navbar-text-color);
+  font-weight: bold;
+}
+
 .navbar-light .navbar-toggler-icon {
   filter: var(--navbar-toggler-icon-filter);
+}
+
+/* Tab styles */
+.nav-tabs .nav-link {
+  color: var(--tab-link-color);
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  color: var(--tab-link-hover-color);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--tab-link-active-color);
+  font-weight: bold;
+  background-color: var(--card-background-color);
+  border-color: var(--card-text-color);
 }
