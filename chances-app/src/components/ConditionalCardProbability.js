@@ -36,11 +36,12 @@ const ConditionalCardProbability = () => {
   const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
   return (
-    <div className="conditional-card-probability mt-4">
-      <h4>Conditional Card Probability</h4>
-      <p>Probability of drawing a specific card rank, given some have already been seen.</p>
-      <div className="mb-3">
-        <label htmlFor="targetRank" className="form-label">Target Card Rank (e.g., A, K, 7):</label>
+    <div className="card mt-4">
+      <div className="card-body">
+        <h4 className="card-title">Conditional Card Probability</h4>
+        <p className="card-text">Probability of drawing a specific card rank, given some have already been seen.</p>
+        <div className="mb-3">
+          <label htmlFor="targetRank" className="form-label">Target Card Rank (e.g., A, K, 7):</label>
         <select
           className="form-select"
           id="targetRank"
@@ -73,6 +74,7 @@ const ConditionalCardProbability = () => {
           <p>Probability of drawing a {targetRank} is: {(probability * 100).toFixed(2)}%</p>
         </div>
       )}
+    </div>
     </div>
   );
 };

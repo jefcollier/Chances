@@ -19,11 +19,12 @@ const BirthdayParadox = () => {
   };
 
   return (
-    <div className="birthday-paradox mt-4">
-      <h4>Birthday Paradox</h4>
-      <p>Probability of at least two people sharing a birthday in a group.</p>
-      <div className="mb-3">
-        <label htmlFor="numPeople" className="form-label">Number of People:</label>
+    <div className="card mt-4">
+      <div className="card-body">
+        <h4 className="card-title">Birthday Paradox</h4>
+        <p className="card-text">Probability of at least two people sharing a birthday in a group.</p>
+        <div className="mb-3">
+          <label htmlFor="numPeople" className="form-label">Number of People:</label>
         <input
           type="number"
           className="form-control"
@@ -42,6 +43,7 @@ const BirthdayParadox = () => {
           <p>Probability of shared birthday: {(probability * 100).toFixed(2)}%</p>
         </div>
       )}
+    </div>
     </div>
   );
 };
