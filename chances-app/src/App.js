@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import HomePage from './components/HomePage';
@@ -8,10 +8,24 @@ import BirthdayParadoxPage from './components/BirthdayParadoxPage';
 import './App.css';
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme || 'light';
+  });
+
+  useEffect(() => {
+    document.body.className = theme + '-theme';
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
   return (
     <Router>
       <div className="container mt-5">
-        <NavigationBar />
+        <NavigationBar theme={theme} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dice" element={<DiceCalculatorPage />} />

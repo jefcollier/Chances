@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Theme styles */
+.light-theme {
+  background-color: #f8f9fa; /* Bootstrap's light background */
+  color: #212529; /* Bootstrap's dark text */
+}
+
+.dark-theme {
+  background-color: #343a40; /* Bootstrap's dark background */
+  color: #f8f9fa; /* Bootstrap's light text */
+}
