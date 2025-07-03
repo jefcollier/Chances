@@ -20,15 +20,24 @@ const CardCalculatorPage = () => {
   return (
     <div>
       <h1>Card Probability Calculator</h1>
-      <CardForm onCalculate={handleCalculate} />
-      {probabilityResults && (
-        <CardProbabilityDisplay
-          handType={probabilityResults.handType}
-          numCards={probabilityResults.numCards}
-          specificCards={probabilityResults.specificCards}
-          probability={probabilityResults.probability}
-        />
-      )}
+      <div className="row">
+        <div className="col-md-6">
+          <h2>Poker</h2>
+          <CardForm onCalculate={handleCalculate} />
+          {probabilityResults && (
+            <CardProbabilityDisplay
+              handType={probabilityResults.handType}
+              numCards={probabilityResults.numCards}
+              specificCards={probabilityResults.specificCards}
+              probability={probabilityResults.probability}
+            />
+          )}
+        </div>
+        <div className="col-md-6">
+          <h2>Blackjack Concepts</h2>
+          <p>Content for Blackjack probability concepts will go here.</p>
+        </div>
+      </div>
     </div>
   );
 };
