@@ -204,11 +204,11 @@ code {
   border-color: var(--table-border-color);
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
+.dark-theme .table-striped tbody tr:nth-of-type(odd) {
   background-color: var(--table-striped-bg);
 }
 
-.table-striped tbody tr:nth-of-type(even) {
+.dark-theme .table-striped tbody tr:nth-of-type(even) {
   background-color: var(--table-striped-bg-even);
 }
 
