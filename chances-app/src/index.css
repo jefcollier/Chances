@@ -86,6 +86,7 @@ code {
   --table-bg: #495057;
   --table-border-color: #6c757d;
   --table-striped-bg: rgba(255, 255, 255, 0.1);
+  --table-striped-bg-even: rgba(255, 255, 255, 0.05);
   --table-hover-bg: rgba(255, 255, 255, 0.15);
 }
 
@@ -205,6 +206,10 @@ code {
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: var(--table-striped-bg);
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: var(--table-striped-bg-even);
 }
 
 .table tbody tr:hover {
