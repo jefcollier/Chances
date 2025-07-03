@@ -85,8 +85,8 @@ code {
   --table-color: #f8f9fa;
   --table-bg: #3a3f44;
   --table-border-color: #6c757d;
-  --table-striped-bg: #495057;
-  --table-striped-bg-even: #5a6268;
+  --table-striped-bg: #42474d; /* Darker grey for odd rows */
+  --table-striped-bg-even: #3a3f44; /* Even darker grey for even rows */
   --table-hover-bg: #5a6268;
 }
 
