@@ -3,6 +3,7 @@ import CardForm from './CardForm';
 import CardProbabilityDisplay from './CardProbabilityDisplay';
 import { calculateHandProbability } from './cardCalculator';
 import BlackjackProbability from './BlackjackProbability';
+import ConditionalCardProbability from './ConditionalCardProbability';
 
 const CardCalculatorPage = () => {
   const [probabilityResults, setProbabilityResults] = useState(null);
@@ -33,6 +34,7 @@ const CardCalculatorPage = () => {
               probability={probabilityResults.probability}
             />
           )}
+          <ConditionalCardProbability />
         </div>
         <div className="col-md-6">
           <h2>Blackjack Concepts</h2>
