@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CardForm from './CardForm';
 import CardProbabilityDisplay from './CardProbabilityDisplay';
 import { calculateHandProbability } from './cardCalculator';
+import BlackjackProbability from './BlackjackProbability';
 
 const CardCalculatorPage = () => {
   const [probabilityResults, setProbabilityResults] = useState(null);
@@ -35,7 +36,7 @@ const CardCalculatorPage = () => {
         </div>
         <div className="col-md-6">
           <h2>Blackjack Concepts</h2>
-          <p>Content for Blackjack probability concepts will go here.</p>
+          <BlackjackProbability />
         </div>
       </div>
     </div>
