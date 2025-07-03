@@ -11,6 +11,9 @@ const NavigationBar = () => {
         <li>
           <Link to="/dice">Dice Calculator</Link>
         </li>
+        <li>
+          <Link to="/card">Card Calculator</Link>
+        </li>
       </ul>
     </nav>
   );
