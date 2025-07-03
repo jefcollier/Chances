@@ -37,6 +37,7 @@ const BlackjackProbability = () => {
   const [bustProbability, setBustProbability] = useState(null);
   const [twentyOneProbability, setTwentyOneProbability] = useState(null);
   const [safeTotalProbability, setSafeTotalProbability] = useState(null);
+  const [recommendation, setRecommendation] = useState(null);
 
   const calculateProbability = () => {
     const deck = [];
@@ -113,6 +114,15 @@ const BlackjackProbability = () => {
       setBustProbability((bustCount / totalPossibleDraws).toFixed(2));
       setTwentyOneProbability((twentyOneCount / totalPossibleDraws).toFixed(2));
       setSafeTotalProbability((safeTotalCount / totalPossibleDraws).toFixed(2));
+
+      // Basic recommendation logic
+      if (bustCount / totalPossibleDraws > 0.5) {
+        setRecommendation('Stand');
+      } else if (safeTotalCount / totalPossibleDraws > 0.5) {
+        setRecommendation('Hit');
+      } else {
+        setRecommendation('Consider your options carefully.');
+      }
     }
   };
 
@@ -149,6 +159,7 @@ const BlackjackProbability = () => {
           <p>Probability of busting if you hit: {bustProbability * 100}%</p>
           {twentyOneProbability !== null && <p>Probability of reaching 21 if you hit: {twentyOneProbability * 100}%</p>}
           {safeTotalProbability !== null && <p>Probability of reaching a safe total (17-21) if you hit: {safeTotalProbability * 100}%</p>}
+          {recommendation && <p>Recommendation: <strong>{recommendation}</strong></p>}
         </div>
       )}
     </div>
