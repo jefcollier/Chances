@@ -14,6 +14,9 @@ const NavigationBar = () => {
         <li>
           <Link to="/card">Card Calculator</Link>
         </li>
+        <li>
+          <Link to="/birthday">Birthday Paradox</Link>
+        </li>
       </ul>
     </nav>
   );

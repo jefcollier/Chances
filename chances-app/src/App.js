@@ -4,6 +4,7 @@ import NavigationBar from './components/NavigationBar';
 import HomePage from './components/HomePage';
 import DiceCalculatorPage from './components/DiceCalculatorPage';
 import CardCalculatorPage from './components/CardCalculatorPage';
+import BirthdayParadoxPage from './components/BirthdayParadoxPage';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/dice" element={<DiceCalculatorPage />} />
           <Route path="/card" element={<CardCalculatorPage />} />
+          <Route path="/birthday" element={<BirthdayParadoxPage />} />
         </Routes>
       </div>
     </Router>
