@@ -20,6 +20,7 @@ code {
   --text-color: #212529;
   --card-background-color: #ffffff;
   --card-text-color: #212529;
+  --card-border-color: #dee2e6; /* Light mode grey border */
   --navbar-background-color: #f8f9fa;
   --navbar-text-color: rgba(0, 0, 0, 0.55);
   --navbar-toggler-icon-filter: none;
@@ -27,6 +28,14 @@ code {
   --tab-link-color: #212529;
   --tab-link-active-color: #212529;
   --tab-link-hover-color: #6c757d;
+
+  /* Light mode button colors (default Bootstrap) */
+  --btn-primary-bg: #0d6efd;
+  --btn-primary-border: #0d6efd;
+  --btn-primary-color: #fff;
+  --btn-secondary-bg: #6c757d;
+  --btn-secondary-border: #6c757d;
+  --btn-secondary-color: #fff;
 }
 
 .dark-theme {
@@ -34,6 +43,7 @@ code {
   --text-color: #f8f9fa;
   --card-background-color: #495057;
   --card-text-color: #f8f9fa;
+  --card-border-color: #6c757d; /* Dark mode border */
   --navbar-background-color: #343a40;
   --navbar-text-color: rgba(255, 255, 255, 0.75);
   --navbar-toggler-icon-filter: invert(1) grayscale(100%) brightness(200%);
@@ -41,13 +51,21 @@ code {
   --tab-link-color: #ffffff;
   --tab-link-active-color: #ffffff;
   --tab-link-hover-color: #e9ecef;
+
+  /* Dark mode button colors (gold/yellow shades) */
+  --btn-primary-bg: #ffc107; /* Bootstrap yellow */
+  --btn-primary-border: #ffc107;
+  --btn-primary-color: #212529;
+  --btn-secondary-bg: #fd7e14; /* Bootstrap orange */
+  --btn-secondary-border: #fd7e14;
+  --btn-secondary-color: #fff;
 }
 
 /* Apply theme variables to elements */
 .card {
   background-color: var(--card-background-color);
   color: var(--card-text-color);
-  border-color: var(--card-text-color);
+  border-color: var(--card-border-color);
 }
 
 .navbar {
@@ -90,5 +108,36 @@ code {
   color: var(--tab-link-active-color);
   font-weight: bold;
   background-color: var(--card-background-color);
-  border-color: var(--card-text-color);
+  border-color: var(--card-border-color);
+}
+
+/* Button styles for dark theme */
+.dark-theme .btn-primary {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-border);
+  color: var(--btn-primary-color);
+}
+
+.dark-theme .btn-primary:hover,
+.dark-theme .btn-primary:focus,
+.dark-theme .btn-primary:active {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-border);
+  color: var(--btn-primary-color);
+  filter: brightness(90%); /* Slightly darken on hover/focus/active */
+}
+
+.dark-theme .btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  border-color: var(--btn-secondary-border);
+  color: var(--btn-secondary-color);
+}
+
+.dark-theme .btn-secondary:hover,
+.dark-theme .btn-secondary:focus,
+.dark-theme .btn-secondary:active {
+  background-color: var(--btn-secondary-bg);
+  border-color: var(--btn-secondary-border);
+  color: var(--btn-secondary-color);
+  filter: brightness(90%); /* Slightly darken on hover/focus/active */
 }
