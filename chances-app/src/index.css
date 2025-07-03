@@ -213,15 +213,15 @@ code {
 }
 
 .dark-theme .table th {
-  background-color: grey;
+  background-color: rgb(108, 117, 125);
 }
 
 .dark-theme .table-striped tbody tr:nth-of-type(odd) td {
-  background-color: rgb(108, 117, 125) !important;
+  background-color: lightgrey !important;
 }
 
 .dark-theme .table-striped tbody tr:nth-of-type(even) td {
-  background-color: lightgrey !important;
+  background-color: darkgrey !important;
 }
 
 .table tbody tr:hover {
