@@ -18,7 +18,6 @@ const CardProbabilityDisplay = ({ handType, numCards, specificCards, probability
 
   return (
     <div className="mt-4">
-      <h2>Probability Results:</h2>
       {handType && <p>Hand Type: {displayHandType}</p>}
       {numCards && <p>Number of Cards: {numCards}</p>}
       {specificCards && <p>Specific Cards: {specificCards}</p>}

@@ -4,6 +4,7 @@ import CardProbabilityDisplay from './CardProbabilityDisplay';
 import { calculateHandProbability } from './cardCalculator';
 import BlackjackProbability from './BlackjackProbability';
 import ConditionalCardProbability from './ConditionalCardProbability';
+import ProbabilityPieChart from './ProbabilityPieChart';
 
 const CardCalculatorPage = () => {
   const [probabilityResults, setProbabilityResults] = useState(null);
@@ -40,12 +41,22 @@ const CardCalculatorPage = () => {
               <h2 className="card-title">Poker Hand Probability</h2>
               <CardForm onCalculate={handleCalculate} />
               {probabilityResults && (
-                <CardProbabilityDisplay
-                  handType={probabilityResults.handType}
-                  numCards={probabilityResults.numCards}
-                  specificCards={probabilityResults.specificCards}
-                  probability={probabilityResults.probability}
-                />
+                <div className="row">
+                  <div className="col-md-6">
+                    <CardProbabilityDisplay
+                      handType={probabilityResults.handType}
+                      numCards={probabilityResults.numCards}
+                      specificCards={probabilityResults.specificCards}
+                      probability={probabilityResults.probability}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <ProbabilityPieChart
+                      probability={probabilityResults.probability}
+                      theme="light" // Assuming a light theme for now, can be made dynamic later
+                    />
+                  </div>
+                </div>
               )}
             </div>
           </div>

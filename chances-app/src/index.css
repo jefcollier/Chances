@@ -42,6 +42,7 @@ code {
   --form-switch-border: rgba(0, 0, 0, 0.25);
   --form-switch-checked-bg: #0d6efd;
   --form-switch-checked-border: #0d6efd;
+  --form-switch-checked-bg-rgb: 13, 109, 253;
   --form-switch-thumb-filter: none;
 
   /* Table colors */
@@ -75,10 +76,11 @@ code {
   --btn-secondary-color: #fff;
 
   /* Dark mode switch colors */
-  --form-switch-bg: #6c757d; /* Grey for unchecked */
-  --form-switch-border: #6c757d;
+  --form-switch-bg: #ffc107; /* Gold for unchecked */
+  --form-switch-border: #ffc107;
   --form-switch-checked-bg: #ffc107; /* Gold for checked */
   --form-switch-checked-border: #ffc107;
+  --form-switch-checked-bg-rgb: 255, 193, 7;
   --form-switch-thumb-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(280deg) brightness(100%) contrast(100%); /* White thumb */
 
   /* Table colors */
@@ -88,6 +90,12 @@ code {
   --table-striped-bg: #495057; /* Medium grey for odd rows */
   --table-striped-bg-even: #3a3f44; /* Dark grey for even rows */
   --table-hover-bg: #5a6268;
+}
+
+.dark-theme .form-check-input:not(:checked) {
+  background-color: var(--form-switch-bg) !important;
+  border-color: var(--form-switch-border) !important;
+  background-image: none !important;
 }
 
 /* Apply theme variables to elements */
@@ -181,6 +189,8 @@ code {
   background-color: var(--form-switch-bg);
   border-color: var(--form-switch-border);
 }
+
+
 
 .form-check-input:focus {
   border-color: var(--form-switch-checked-border);
