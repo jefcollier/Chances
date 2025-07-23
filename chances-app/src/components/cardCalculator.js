@@ -88,4 +88,26 @@ const calculateHandProbability = ({ handType, numCards, specificCards }) => {
   return (favorableHands / totalPossibleHands) * 100; // Return as percentage
 };
 
-export { calculateHandProbability };
+const calculateAllHandProbabilities = ({ numCards }) => {
+  const handTypes = [
+    'royalFlush',
+    'straightFlush',
+    'fourOfAKind',
+    'fullHouse',
+    'flush',
+    'straight',
+    'threeOfAKind',
+    'twoPair',
+    'onePair',
+    'highCard',
+  ];
+
+  const probabilities = handTypes.map(handType => ({
+    name: handType.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()), // Add spaces and capitalize
+    probability: calculateHandProbability({ handType, numCards, specificCards: [] }),
+  }));
+
+  return probabilities;
+};
+
+export { calculateHandProbability, calculateAllHandProbabilities };

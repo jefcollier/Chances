@@ -5,6 +5,7 @@ import { calculateHandProbability } from './cardCalculator';
 import BlackjackProbability from './BlackjackProbability';
 import ConditionalCardProbability from './ConditionalCardProbability';
 import ProbabilityPieChart from './ProbabilityPieChart';
+import PokerProbabilityDistribution from './PokerProbabilityDistribution';
 
 const CardCalculatorPage = () => {
   const [probabilityResults, setProbabilityResults] = useState(null);
@@ -32,6 +33,9 @@ const CardCalculatorPage = () => {
         </li>
         <li className="nav-item" role="presentation">
           <button className="nav-link" id="conditional-tab" data-bs-toggle="tab" data-bs-target="#conditional" type="button" role="tab" aria-controls="conditional" aria-selected="false">Conditional Probability</button>
+        </li>
+        <li className="nav-item" role="presentation">
+          <button className="nav-link" id="distribution-tab" data-bs-toggle="tab" data-bs-target="#distribution" type="button" role="tab" aria-controls="distribution" aria-selected="false">Poker Hand Distribution</button>
         </li>
       </ul>
       <div className="tab-content" id="cardTabsContent">
@@ -74,6 +78,13 @@ const CardCalculatorPage = () => {
             <div className="card-body">
               <h2 className="card-title">Conditional Card Probability</h2>
               <ConditionalCardProbability />
+            </div>
+          </div>
+        </div>
+        <div className="tab-pane fade" id="distribution" role="tabpanel" aria-labelledby="distribution-tab">
+          <div className="card mt-3">
+            <div className="card-body">
+              <PokerProbabilityDistribution />
             </div>
           </div>
         </div>
